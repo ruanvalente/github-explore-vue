@@ -20,7 +20,7 @@
 
 <script>
 import { mapState } from "vuex";
-import RepositoryList from "@/components/RepositoryList";
+import RepositoryList from "@/views/RepositoryList";
 
 export default {
   name: "Main",

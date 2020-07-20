@@ -1,5 +1,13 @@
 <template>
   <div>
+    <header class="header">
+      <img src="@/assets/logo.svg" alt="GitHub Explore Vue" />
+      <router-link to="/">
+        <arrow-left-icon size="1.5x" class="custom-class"></arrow-left-icon>
+        <p>voltar</p>
+      </router-link>
+    </header>
+
     <section>
       <header>
         <img src="https://avatars3.githubusercontent.com/u/6674232?v=4" alt="Profile image" />
@@ -30,16 +38,42 @@
 </template>
 
 <script>
-import Issues from "@/components/Issues";
+import { ArrowLeftIcon } from "vue-feather-icons";
+import Issues from "@/views/Issues";
 export default {
   name: "RepositoryInfo",
   components: {
-    Issues
+    Issues,
+    ArrowLeftIcon
   }
 };
 </script>
 
 <style lang="css" scoped>
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #a8a8b3;
+  transition: color 0.2s;
+}
+
+.header p {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.header a:hover {
+  color: #a9a9b1;
+}
+
 section {
   margin-top: 80px;
 }
@@ -49,14 +83,14 @@ header {
   align-items: center;
 }
 
-img {
+section header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   transition: transform 0.5s;
 }
 
-img:hover {
+section header img:hover {
   transform: scale(1.1);
 }
 

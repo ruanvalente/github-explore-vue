@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '@/components/Main'
-import HeaderRepository from '@/components/HeaderRepository'
+import Main from '@/views/Main'
+import RepositoryInfo from '@/views/RepositoryInfo'
 
 Vue.use(VueRouter)
 
@@ -13,8 +13,8 @@ Vue.use(VueRouter)
   },
   {
     path: '/repository',
-    name: 'HeaderRepository',
-    component: HeaderRepository
+    name: 'RepositoryInfo',
+    component: RepositoryInfo
   },
   // {
   //   path: '/about',
