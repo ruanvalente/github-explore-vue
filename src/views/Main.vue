@@ -25,17 +25,17 @@ import RepositoryList from "@/views/RepositoryList";
 export default {
   name: "Main",
   components: {
-    RepositoryList
+    RepositoryList,
   },
   data() {
     return {
       errorMessager: "",
       newRepository: "",
-      hasError: false
+      hasError: false,
     };
   },
   computed: {
-    ...mapState(["repositories"])
+    ...mapState(["repositories"]),
   },
   methods: {
     hanldeAddRepository() {
@@ -46,10 +46,10 @@ export default {
       }
       this.$store.dispatch("addUserRepository", `${this.newRepository}`);
       this.$store.dispatch("getRepositories", this.$store.state.repositories);
-
       this.newRepository = "";
-    }
-  }
+      this.$refs.newRepository.focus();
+    },
+  },
 };
 </script>
 

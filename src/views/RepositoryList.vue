@@ -19,11 +19,11 @@ import { ArrowRightIcon } from "vue-feather-icons";
 export default {
   name: "RepositoryList",
   components: {
-    ArrowRightIcon
+    ArrowRightIcon,
   },
   computed: {
-    ...mapState(["repositories"])
-  }
+    ...mapState(["repositories"]),
+  },
 };
 </script>
 

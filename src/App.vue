@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <transition name="fade" mode="out-in">
-      <router-view/>
+      <router-view />
     </transition>
   </div>
 </template>
@@ -17,24 +17,26 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    background: #E5E5E5 url('./assets/github-background.svg') no-repeat 70% top;
-  }
+body {
+  background: #e5e5e5 url("./assets/github-background.svg") no-repeat 70% top;
+}
 
-  body, input, button {
-    font-size: 16px;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-  }
+body,
+input,
+button {
+  font-size: 16px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
 
-  button {
-    cursor: pointer;
-  }
+button {
+  cursor: pointer;
+}
 
 /** Transition Vue */
 
@@ -47,6 +49,6 @@
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>

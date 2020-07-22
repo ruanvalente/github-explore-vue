@@ -1,19 +1,19 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Main from '@/views/Main'
-import RepositoryInfo from '@/views/RepositoryInfo'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Main from "@/views/Main";
+import RepositoryInfo from "@/views/RepositoryInfo";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
   const routes = [
   {
-    path: '/',
-    name: 'Main',
+    path: "/",
+    name: "Main",
     component: Main
   },
   {
-    path: '/repository/:username*',
-    name: 'RepositoryInfo',
+    path: "/repository/:username*",
+    name: "RepositoryInfo",
     component: RepositoryInfo
   },
   // {
@@ -27,9 +27,9 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes
 })
 
-export default router
+export default router;

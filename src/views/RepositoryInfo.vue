@@ -47,20 +47,20 @@ export default {
   name: "RepositoryInfo",
   data() {
     return {
-      username: this.$route.params.username
+      username: this.$route.params.username,
     };
   },
   components: {
     Issues,
-    ArrowLeftIcon
+    ArrowLeftIcon,
   },
   computed: {
-    ...mapState(["repositoriesInfo"])
+    ...mapState(["repositoriesInfo"]),
   },
   mounted() {
     this.$store.dispatch("getRepositoriesList", this.username);
     this.$store.dispatch("getIssues", this.username);
-  }
+  },
 };
 </script>
 
