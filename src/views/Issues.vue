@@ -1,21 +1,27 @@
 <template>
   <div>
-    <router-link to="/">
-      <div class="issue-detail">
-        <strong>issue title</strong>
-        <p>issue user login</p>
-      </div>
-      <arrow-right-icon size="1.5x" class="custom-class"></arrow-right-icon>
-    </router-link>
+    <div v-for="(issue, index) in issues" :key="index">
+      <router-link :to="`${issue.html_url}`">
+        <div class="issue-detail">
+          <strong>{{issue.title }}</strong>
+          <p>{{ issue.user.login }}</p>
+        </div>
+        <arrow-right-icon size="1.5x" class="custom-class"></arrow-right-icon>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { ArrowRightIcon } from "vue-feather-icons";
 export default {
   name: "Issues",
   components: {
     ArrowRightIcon
+  },
+  computed: {
+    ...mapState(["issues"])
   }
 };
 </script>

@@ -59,6 +59,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getRepositoriesList", this.username);
+    this.$store.dispatch("getIssues", this.username);
   }
 };
 </script>
