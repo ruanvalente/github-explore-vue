@@ -41,10 +41,12 @@ export default {
     hanldeAddRepository() {
       if (!this.newRepository) {
         this.hasError = true;
+        this.errorMessager = "Favor entrar com o repositório correto.";
         return;
       }
       this.$store.dispatch("addUserRepository", `${this.newRepository}`);
-      this.$store.dispatch("getRepositories");
+      this.$store.dispatch("getRepositories", this.$store.state.repositories);
+
       this.newRepository = "";
     }
   }

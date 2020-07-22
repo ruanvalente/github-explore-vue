@@ -12,7 +12,7 @@ Vue.use(VueRouter)
     component: Main
   },
   {
-    path: '/repository',
+    path: '/repository/:username*',
     name: 'RepositoryInfo',
     component: RepositoryInfo
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="repo-list">
     <div id="repo-container" v-for="(repository, index) in repositories" :key="index">
-      <router-link to="/repository">
+      <router-link :to="`/repository/${repository.full_name}`">
         <img :src="repository.owner.avatar_url" alt="Profile image" />
         <div>
           <strong>{{repository.full_name}}</strong>

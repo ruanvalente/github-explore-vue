@@ -10,24 +10,24 @@
 
     <section>
       <header>
-        <img src="https://avatars3.githubusercontent.com/u/6674232?v=4" alt="Profile image" />
+        <img :src="repositoriesInfo.owner.avatar_url" :alt="repositoriesInfo.full_name" />
         <div>
-          <strong>repository_fullname</strong>
-          <p>description</p>
+          <strong>{{ repositoriesInfo.full_name }}</strong>
+          <p>{{ repositoriesInfo.description }}</p>
         </div>
       </header>
 
       <ul>
         <li>
-          <strong>44</strong>
+          <strong>{{ repositoriesInfo.stargazers_count }}</strong>
           <span>Star</span>
         </li>
         <li>
-          <strong>1</strong>
+          <strong>{{ repositoriesInfo.forks_count }}</strong>
           <span>Forks</span>
         </li>
         <li>
-          <strong>2</strong>
+          <strong>{{ repositoriesInfo.open_issues_count }}</strong>
           <span>Issue Abertas</span>
         </li>
       </ul>
@@ -40,11 +40,25 @@
 <script>
 import { ArrowLeftIcon } from "vue-feather-icons";
 import Issues from "@/views/Issues";
+
+import { mapState } from "vuex";
+
 export default {
   name: "RepositoryInfo",
+  data() {
+    return {
+      username: this.$route.params.username
+    };
+  },
   components: {
     Issues,
     ArrowLeftIcon
+  },
+  computed: {
+    ...mapState(["repositoriesInfo"])
+  },
+  mounted() {
+    this.$store.dispatch("getRepositoriesList", this.username);
   }
 };
 </script>
