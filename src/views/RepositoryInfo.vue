@@ -41,7 +41,7 @@
 import { ArrowLeftIcon } from "vue-feather-icons";
 import Issues from "@/views/Issues";
 
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "RepositoryInfo",
@@ -57,9 +57,12 @@ export default {
   computed: {
     ...mapState(["repositoriesInfo"]),
   },
+  methods: {
+    ...mapActions(["getRepositoriesList", "getIssues"]),
+  },
   mounted() {
-    this.$store.dispatch("getRepositoriesList", this.username);
-    this.$store.dispatch("getIssues", this.username);
+    this.getRepositoriesList(this.username);
+    this.getIssues(this.username);
   },
 };
 </script>

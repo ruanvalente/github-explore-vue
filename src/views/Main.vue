@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import RepositoryList from "@/views/RepositoryList";
 
 export default {
@@ -38,16 +38,18 @@ export default {
     ...mapState(["repositories"]),
   },
   methods: {
+    ...mapActions(["addUserRepository", "getRepositories"]),
+
     hanldeAddRepository() {
       if (!this.newRepository) {
         this.hasError = true;
         this.errorMessager = "Favor entrar com o repositório correto.";
         return;
+      } else {
+        this.addUserRepository(`${this.newRepository}`);
+        this.getRepositories(this.$store.state.repositories);
+        this.newRepository = "";
       }
-      this.$store.dispatch("addUserRepository", `${this.newRepository}`);
-      this.$store.dispatch("getRepositories", this.$store.state.repositories);
-      this.newRepository = "";
-      this.$refs.newRepository.focus();
     },
   },
 };

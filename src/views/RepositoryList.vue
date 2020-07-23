@@ -16,6 +16,7 @@
 <script>
 import { mapState } from "vuex";
 import { ArrowRightIcon } from "vue-feather-icons";
+
 export default {
   name: "RepositoryList",
   components: {
